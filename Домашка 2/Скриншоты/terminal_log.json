@@ -1,0 +1,418 @@
+[
+ {
+  "cwd": "~/СУВ_ЛП2",
+  "cmd": "mkdir svn_test",
+  "out": "",
+  "rc": 0,
+  "sec": 0.009,
+  "shot": "svn1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "cd svn_test",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "svn1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "svnadmin create repo",
+  "out": "",
+  "rc": 0,
+  "sec": 0.693,
+  "shot": "svn1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "ls repo",
+  "out": "conf\ndb\nformat\nhooks\nlocks\nREADME.txt\n",
+  "rc": 0,
+  "sec": 0.012,
+  "shot": "svn1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "svn checkout \"file://$PWD/repo\" project1",
+  "out": "Checked out revision 0.\n",
+  "rc": 0,
+  "sec": 0.733,
+  "shot": "svn1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "cd project1",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "svn2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "echo \"Hello SVN\" > readme.txt",
+  "out": "",
+  "rc": 0,
+  "sec": 0.012,
+  "shot": "svn2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn add readme.txt",
+  "out": "A         readme.txt\n",
+  "rc": 0,
+  "sec": 0.033,
+  "shot": "svn2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn status",
+  "out": "A       readme.txt\n",
+  "rc": 0,
+  "sec": 0.026,
+  "shot": "svn2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn commit -m \"Initial commit\"",
+  "out": "Adding         readme.txt\nTransmitting file data .done\nCommitting transaction...\nCommitted revision 1.\n",
+  "rc": 0,
+  "sec": 0.931,
+  "shot": "svn2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "echo \"Вторая строка: добавлено описание проекта\" >> readme.txt",
+  "out": "",
+  "rc": 0,
+  "sec": 0.018,
+  "shot": "svn3"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn diff",
+  "out": "Index: readme.txt\n===================================================================\n--- readme.txt\t(revision 1)\n+++ readme.txt\t(working copy)\n@@ -1 +1,2 @@\n Hello SVN\n+Вторая строка: добавлено описание проекта\n",
+  "rc": 0,
+  "sec": 0.033,
+  "shot": "svn3"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn commit -m \"Добавлена вторая строка в readme.txt\"",
+  "out": "Sending        readme.txt\nTransmitting file data .done\nCommitting transaction...\nCommitted revision 2.\n",
+  "rc": 0,
+  "sec": 0.948,
+  "shot": "svn3"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn log",
+  "out": "------------------------------------------------------------------------\n",
+  "rc": 0,
+  "sec": 0.033,
+  "shot": "svn4"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn info --show-item revision",
+  "out": "0\n",
+  "rc": 0,
+  "sec": 0.023,
+  "shot": "svn4"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "cd ..",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "svn5"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "svn checkout \"file://$PWD/repo\" project2",
+  "out": "A    project2/readme.txt\nChecked out revision 2.\n",
+  "rc": 0,
+  "sec": 0.945,
+  "shot": "svn5"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project2",
+  "cmd": "cd project2",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "svn5"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project2",
+  "cmd": "svn log",
+  "out": "------------------------------------------------------------------------\nr2 | admin | 2026-10-05 19:29:11 +0300 (пн, 05 окт. 2026) | 1 line\n\nДобавлена вторая строка в readme.txt\n------------------------------------------------------------------------\nr1 | admin | 2026-10-05 19:29:10 +0300 (пн, 05 окт. 2026) | 1 line\n\nInitial commit\n------------------------------------------------------------------------\n",
+  "rc": 0,
+  "sec": 0.039,
+  "shot": "svn5"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "cd ../project1",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "svn6"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn update",
+  "out": "Updating '.':\nAt revision 2.\n",
+  "rc": 0,
+  "sec": 0.96,
+  "shot": "svn6"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test/project1",
+  "cmd": "svn log",
+  "out": "------------------------------------------------------------------------\nr2 | admin | 2026-10-05 19:29:11 +0300 (пн, 05 окт. 2026) | 1 line\n\nДобавлена вторая строка в readme.txt\n------------------------------------------------------------------------\nr1 | admin | 2026-10-05 19:29:10 +0300 (пн, 05 окт. 2026) | 1 line\n\nInitial commit\n------------------------------------------------------------------------\n",
+  "rc": 0,
+  "sec": 0.036,
+  "shot": "svn6"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2",
+  "cmd": "cd ~/СУВ_ЛП2",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "git1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2",
+  "cmd": "mkdir git_test",
+  "out": "",
+  "rc": 0,
+  "sec": 0.009,
+  "shot": "git1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test",
+  "cmd": "cd git_test",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "git1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test",
+  "cmd": "git init --bare repo.git",
+  "out": "Initialized empty Git repository in /Users/admin/СУВ_ЛП2/git_test/repo.git/\n",
+  "rc": 0,
+  "sec": 0.043,
+  "shot": "git1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test",
+  "cmd": "git clone repo.git project1",
+  "out": "Cloning into 'project1'...\nwarning: You appear to have cloned an empty repository.\ndone.\n",
+  "rc": 0,
+  "sec": 0.052,
+  "shot": "git1"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "cd project1",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "git2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git config user.name \"Daniil Osipov\"",
+  "out": "",
+  "rc": 0,
+  "sec": 0.024,
+  "shot": "git2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git config user.email \"borodachkiller055@gmail.com\"",
+  "out": "",
+  "rc": 0,
+  "sec": 0.023,
+  "shot": "git2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "echo \"Hello Git\" > readme.txt",
+  "out": "",
+  "rc": 0,
+  "sec": 0.006,
+  "shot": "git2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git add .",
+  "out": "",
+  "rc": 0,
+  "sec": 0.027,
+  "shot": "git2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git status --short",
+  "out": "A  readme.txt\n",
+  "rc": 0,
+  "sec": 0.028,
+  "shot": "git2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git commit -m \"Initial commit\"",
+  "out": "[main (root-commit) 0b7b6d9] Initial commit\n 1 file changed, 1 insertion(+)\n create mode 100644 readme.txt\n",
+  "rc": 0,
+  "sec": 0.04,
+  "shot": "git2"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "echo \"Second line: project description added\" >> readme.txt",
+  "out": "",
+  "rc": 0,
+  "sec": 0.006,
+  "shot": "git3"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git diff",
+  "out": "diff --git a/readme.txt b/readme.txt\nindex 9f4d96d..d32b2e0 100644\n--- a/readme.txt\n+++ b/readme.txt\n@@ -1 +1,2 @@\n Hello Git\n+Second line: project description added\n",
+  "rc": 0,
+  "sec": 0.025,
+  "shot": "git3"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git commit -am \"Add second line to readme.txt\"",
+  "out": "[main e91349d] Add second line to readme.txt\n 1 file changed, 1 insertion(+)\n",
+  "rc": 0,
+  "sec": 0.038,
+  "shot": "git3"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git log",
+  "out": "commit e91349dbd44a6112417cd4cf3b32bbf1ff0bfad0\nAuthor: Daniil Osipov <borodachkiller055@gmail.com>\nDate:   Mon Oct 5 19:29:14 2026 +0300\n\n    Add second line to readme.txt\n\ncommit 0b7b6d9c439b4c17444ea4599af768833ced4193\nAuthor: Daniil Osipov <borodachkiller055@gmail.com>\nDate:   Mon Oct 5 19:29:14 2026 +0300\n\n    Initial commit\n",
+  "rc": 0,
+  "sec": 0.027,
+  "shot": "git4"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git log --oneline --graph",
+  "out": "* e91349d Add second line to readme.txt\n* 0b7b6d9 Initial commit\n",
+  "rc": 0,
+  "sec": 0.025,
+  "shot": "git4"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "git push origin HEAD",
+  "out": "To /Users/admin/СУВ_ЛП2/git_test/repo.git\n * [new branch]      HEAD -> main\n",
+  "rc": 0,
+  "sec": 0.096,
+  "shot": "git5"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test",
+  "cmd": "cd ..",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "git6"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test",
+  "cmd": "git clone repo.git project2",
+  "out": "Cloning into 'project2'...\ndone.\n",
+  "rc": 0,
+  "sec": 0.056,
+  "shot": "git6"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project2",
+  "cmd": "cd project2",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "git6"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project2",
+  "cmd": "git log --oneline",
+  "out": "e91349d Add second line to readme.txt\n0b7b6d9 Initial commit\n",
+  "rc": 0,
+  "sec": 0.027,
+  "shot": "git6"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project2",
+  "cmd": "git switch -c feature/docs",
+  "out": "Switched to a new branch 'feature/docs'\n",
+  "rc": 0,
+  "sec": 0.029,
+  "shot": "git7"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project2",
+  "cmd": "git branch",
+  "out": "* feature/docs\n  main\n",
+  "rc": 0,
+  "sec": 0.026,
+  "shot": "git7"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "cd ~/СУВ_ЛП2/svn_test",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "svn7"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "svn mkdir \"file://$PWD/repo/branches\" -m \"Создан каталог branches\"",
+  "out": "Committing transaction...\nCommitted revision 3.\n",
+  "rc": 0,
+  "sec": 0.056,
+  "shot": "svn7"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "svn copy \"file://$PWD/repo/readme.txt\" \"file://$PWD/repo/branches/readme-feature.txt\" -m \"Ветка-копия\"",
+  "out": "Committing transaction...\nCommitted revision 4.\n",
+  "rc": 0,
+  "sec": 0.054,
+  "shot": "svn7"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/svn_test",
+  "cmd": "mv repo repo_offline && cd project1 && svn update; cd .. && mv repo_offline repo",
+  "out": "Updating '.':\nsvn: E170013: Unable to connect to a repository at URL 'file:///Users/admin/%D0%A1%D0%A3%D0%92_%D0%9B%D0%9F2/svn_test/repo'\nsvn: E180001: Unable to open repository 'file:///Users/admin/%D0%A1%D0%A3%D0%92_%D0%9B%D0%9F2/svn_test/repo'\n",
+  "rc": 0,
+  "sec": 0.032,
+  "shot": "svn8"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "cd ~/СУВ_ЛП2/git_test/project1",
+  "out": "",
+  "rc": 0,
+  "sec": 0.0,
+  "shot": "git8"
+ },
+ {
+  "cwd": "~/СУВ_ЛП2/git_test/project1",
+  "cmd": "mv ../repo.git ../repo_offline.git && echo \"offline\" >> readme.txt && git commit -qam \"Offline commit\" && git log --oneline -1; mv ../repo_offline.git ../repo.git",
+  "out": "7f55003 Offline commit\n",
+  "rc": 0,
+  "sec": 0.066,
+  "shot": "git8"
+ }
+]
